@@ -7,7 +7,6 @@
 return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
     'name' => 'Application',
-    'defaultController' => 'Home',
     // preloading 'log' component
     'language' => 'en',
     'preload' => array('log'),
@@ -21,20 +20,14 @@ return array(
         'application.helpers.*'
     ),
     'modules' => array(
-        // uncomment the following to enable the Gii tool
-
-        'gii' => array(
+         'gii' => array(
             'class' => 'system.gii.GiiModule',
             'password' => 'dev',
-            // If removed, Gii defaults to localhost only. Edit carefully to taste.
             'ipFilters' => array('127.0.0.1', '::1'),
         ),
-        'user' => array(
-            'hash' => 'sha1',
-            'sendActivationMail' => true,
-            'activeAfterRegister' => false,
-            'autoLogin' => true
-        ),
+        'asset' => array(
+            "defaultController" => "asset"
+        )
     ),
     // application components
     'components' => array(
@@ -51,9 +44,21 @@ return array(
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ),
         ),
-        'errorHandler' => array(
-            // use 'site/error' action to display errors
-            'errorAction' => 'site/error',
+        'matadb' => array(
+            'connectionString' => 'mysql:host=37.123.117.163;dbname=manage.qi-interactive.com',
+            'emulatePrepare' => true,
+            'username' => 'qi',
+            'password' => 'CHcxjvLs',
+            'charset' => 'utf8',
+            'enableParamLogging' => true
+        ),
+        'db' => array(
+            'connectionString' => 'mysql:host=37.123.117.163;dbname=manage.qi-interactive.com',
+            'emulatePrepare' => true,
+            'username' => 'qi',
+            'password' => 'CHcxjvLs',
+            'charset' => 'utf8',
+            'enableParamLogging' => true
         ),
         'log' => array(
             'class' => 'CLogRouter',
@@ -62,11 +67,11 @@ return array(
                     'class' => 'CFileLogRoute',
                     'levels' => 'error, warning',
                 ),
-            /*
+                /*
               array(
               'class'=>'CWebLogRoute',
               ),
-             */
+                 * */
             ),
         ),
     ),
