@@ -9,8 +9,6 @@ if (strripos($_SERVER['SERVER_NAME'], "localhost") == true || strrpos($_SERVER['
         strrpos($_SERVER['SERVER_NAME'], "qi-interactive.com") == true) {
     $config = dirname(__FILE__) . '/protected/config/dev.php';
     defined('YII_DEBUG') or define('YII_DEBUG', true);
-    error_reporting(E_ALL);
-    ini_set("display_errors", 1);
 } else {
     $config = dirname(__FILE__) . '/protected/config/prod.php';
 }
