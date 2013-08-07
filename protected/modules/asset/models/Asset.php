@@ -31,7 +31,7 @@ class Asset extends MataActiveRecord {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('Name', 'required'),
+            array('Name, OwnerUserId', 'required'),
             array('SerialNumber', 'length', 'max' => 64),
         );
     }

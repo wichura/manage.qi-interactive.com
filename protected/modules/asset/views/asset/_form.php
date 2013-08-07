@@ -1,9 +1,3 @@
-<?php
-/* @var $this ProjectController */
-/* @var $model Project */
-/* @var $form CActiveForm */
-?>
-
 <div class="form">
 
     <?php
@@ -14,18 +8,23 @@
     ?>
 
     <?php echo $form->errorSummary($model); ?>
-    <div class="row">
-        <?php
-        $this->widget('application.extensions.qrcode.QRCodeGenerator', array(
-            'data' => 'ss',
-            'subfolderVar' => false,
-            'matrixPointSize' => 5,
-            'displayImage' => true, // default to true, if set to false display a URL path
-            'errorCorrectionLevel' => 'L', // available parameter is L,M,Q,H
-            'matrixPointSize' => 4, // 1 to 10 only
-        ))
-        ?>
-    </div>
+
+    <?php if ($model->isNewRecord == false): ?>
+        <div class="row">
+            <?php
+            $serverName = $_SERVER["SERVER_NAME"];
+            $this->widget('application.extensions.qrcode.QRCodeGenerator', array(
+                'data' => "http://$serverName/qiProject/qiproject/view/id/$model->Id",
+                'filename' => "qr-asset-$model->Id",
+                'subfolderVar' => false,
+                'displayImage' => true, // default to true, if set to false display a URL path
+                'errorCorrectionLevel' => 'L', // available parameter is L,M,Q,H
+                'matrixPointSize' => 4, // 1 to 10 only
+            ))
+            ?>
+        </div>
+    <?php endif; ?>
+
     <div class="row">
         <?php
         foreach ($model->getAttributes() as $attribute => $value):
@@ -44,19 +43,6 @@
         ?>
 
     </div>
-
-
-    <!--    <div class="row">
-    <?php echo $form->labelEx($model, 'Name'); ?>
-    <?php echo $form->textField($model, 'Name', array('size' => 60, 'maxlength' => 255)); ?>
-    <?php echo $form->error($model, 'Name'); ?>
-        </div>
-    
-        <div class="row">
-    <?php echo $form->labelEx($model, 'SerialNumber'); ?>
-    <?php echo $form->textField($model, 'SerialNumber', array('size' => 60, 'maxlength' => 255)); ?>
-    <?php echo $form->error($model, 'SerialNumber'); ?>
-        </div>-->
 
     <div class="row buttons">
         <?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>

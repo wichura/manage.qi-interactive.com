@@ -26,7 +26,11 @@ return array(
             'sendActivationMail' => true,
             'activeAfterRegister' => false,
             'autoLogin' => true
-        )
+        ),
+        'asset' => array(
+            "defaultController" => "asset"
+        ),
+        'qiProject'
     ),
     // application components
     'components' => array(

@@ -6,7 +6,7 @@
 // CWebApplication properties can be configured here.
 return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
-    'name' => 'Application',
+    'name' => 'My lovely application',
     // preloading 'log' component
     'language' => 'en',
     'preload' => array('log'),
@@ -27,7 +27,8 @@ return array(
         ),
         'asset' => array(
             "defaultController" => "asset"
-        )
+        ),
+        'qiProject'
     ),
     // application components
     'components' => array(
