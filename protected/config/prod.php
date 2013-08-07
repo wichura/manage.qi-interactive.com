@@ -7,7 +7,6 @@
 return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
     'name' => 'Application',
-    'defaultController' => 'Home',
     'language' => 'en',
     // preloading 'log' component
     'preload' => array('log'),
@@ -50,6 +49,22 @@ return array(
         'errorHandler' => array(
             // use 'site/error' action to display errors
             'errorAction' => 'site/error',
+        ),
+        'matadb' => array(
+            'connectionString' => 'mysql:host=83.170.88.249;dbname=manage.qi-interactive.com',
+            'emulatePrepare' => true,
+            'username' => 'qi',
+            'password' => 'AM5Du7Lg',
+            'charset' => 'utf8',
+            'enableParamLogging' => true
+        ),
+        'db' => array(
+            'connectionString' => 'mysql:host=83.170.88.249;dbname=manage.qi-interactive.com',
+            'emulatePrepare' => true,
+            'username' => 'qi',
+            'password' => 'AM5Du7Lg',
+            'charset' => 'utf8',
+            'enableParamLogging' => true
         ),
         'log' => array(
             'class' => 'CLogRouter',
