@@ -7,7 +7,7 @@
 return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
     'name' => 'Application',
-    'language' => 'en',
+    'language' => 'en', 
     // preloading 'log' component
     'preload' => array('log'),
     // autoloading model and component classes
