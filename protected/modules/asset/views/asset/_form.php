@@ -14,7 +14,7 @@
             <?php
             $serverName = $_SERVER["SERVER_NAME"];
             $this->widget('application.extensions.qrcode.QRCodeGenerator', array(
-                'data' => "http://$serverName/qiProject/qiproject/view/id/$model->Id",
+                'data' => "http://$serverName/asset/asset/view/id/$model->Id",
                 'filename' => "qr-asset-$model->Id",
                 'subfolderVar' => false,
                 'displayImage' => true, // default to true, if set to false display a URL path
