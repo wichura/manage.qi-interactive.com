@@ -10,18 +10,23 @@
     <?php echo $form->errorSummary($model); ?>
 
     <?php if ($model->isNewRecord == false): ?>
+
         <div class="row">
-            <?php
-            $serverName = $_SERVER["SERVER_NAME"];
-            $this->widget('application.extensions.qrcode.QRCodeGenerator', array(
-                'data' => "http://$serverName/asset/asset/view/id/$model->Id",
-                'filename' => "qr-asset-$model->Id",
-                'subfolderVar' => false,
-                'displayImage' => true, // default to true, if set to false display a URL path
-                'errorCorrectionLevel' => 'L', // available parameter is L,M,Q,H
-                'matrixPointSize' => 4, // 1 to 10 only
-            ))
-            ?>
+            <label>QR Code</label>
+            <a onclick="$('#qr').show(); $(this).remove()" href="javascript:void(0)">Show</a>
+            <div id="qr" style="display: none;" >
+                <?php
+                $serverName = $_SERVER["SERVER_NAME"];
+                $this->widget('application.extensions.qrcode.QRCodeGenerator', array(
+                    'data' => "http://$serverName/asset/asset/view/id/$model->Id",
+                    'filename' => "qr-asset-$model->Id",
+                    'subfolderVar' => false,
+                    'displayImage' => true, // default to true, if set to false display a URL path
+                    'errorCorrectionLevel' => 'L', // available parameter is L,M,Q,H
+                    'matrixPointSize' => 4, // 1 to 10 only
+                ))
+                ?>
+            </div>
         </div>
     <?php endif; ?>
 

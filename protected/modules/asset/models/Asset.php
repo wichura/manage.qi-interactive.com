@@ -33,6 +33,7 @@ class Asset extends MataActiveRecord {
         return array(
             array('Name, OwnerUserId', 'required'),
             array('SerialNumber', 'length', 'max' => 64),
+            array("Name", 'safe', 'on' => 'search')
         );
     }
 
@@ -41,21 +42,25 @@ class Asset extends MataActiveRecord {
         // should not be searched.
 
         $criteria = new CDbCriteria;
-
-        $criteria->compare('Id', $this->Id, true);
-        $criteria->compare('DateCreated', $this->DateCreated, true);
         $criteria->compare('Name', $this->Name, true);
 
+        if (isset($_GET["filter"]) && !empty($_GET["filter"])) {
+            $filter = $_GET["filter"];
+
+            $criteria->compare("Name", $filter, true);
+        }
+
         return new CActiveDataProvider($this, array(
-            'criteria' => $criteria,
-            "sort" => array(
-                "defaultOrder" => "Name ASC"
-            )
+            'criteria' => $criteria
         ));
     }
 
     public function getLabel() {
         return $this->Name;
+    }
+
+    public function getSortableAttributes() {
+        return array("Name");
     }
 
 }
