@@ -5,8 +5,7 @@ $application = dirname(__FILE__) . "/mata/components/MataWebApplication.php";
 // change the following paths if necessary
 $yii = dirname(__FILE__) . '/yii/framework/yii.php';
 
-if (strripos($_SERVER['SERVER_NAME'], "localhost") == true || strrpos($_SERVER['SERVER_NAME'], ".local") == true ||
-        strrpos($_SERVER['SERVER_NAME'], "qi-interactive.com") == true) {
+if (strripos($_SERVER['SERVER_NAME'], "localhost") == true || strrpos($_SERVER['SERVER_NAME'], ".local") == true) {
     $config = dirname(__FILE__) . '/protected/config/dev.php';
     defined('YII_DEBUG') or define('YII_DEBUG', true);
 } else {

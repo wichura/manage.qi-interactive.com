@@ -28,8 +28,7 @@ return array(
         ),
         'asset' => array(
             "defaultController" => "asset"
-        ),
-        'qiProject'
+        )
     ),
     // application components
     'components' => array(
