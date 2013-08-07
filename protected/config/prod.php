@@ -25,9 +25,6 @@ return array(
             'sendActivationMail' => true,
             'activeAfterRegister' => false,
             'autoLogin' => true
-        ),
-        'asset' => array(
-            "defaultController" => "asset"
         )
     ),
     // application components

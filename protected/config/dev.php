@@ -7,7 +7,6 @@
 return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
     'name' => 'My lovely application',
-    // preloading 'log' component
     'language' => 'en',
     'preload' => array('log'),
     // autoloading model and component classes
@@ -24,9 +23,6 @@ return array(
             'class' => 'system.gii.GiiModule',
             'password' => 'dev',
             'ipFilters' => array('127.0.0.1', '::1'),
-        ),
-        'asset' => array(
-            "defaultController" => "asset"
         )
     ),
     // application components
