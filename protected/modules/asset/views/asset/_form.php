@@ -48,6 +48,8 @@
                     continue;
                 ?>
 
+                <!-- Items below 500 pounds will not have depreciation -->
+
                 <div class="row">
                     <?php echo $form->labelEx($model, $attribute); ?>
                     <?php echo $form->getFormElementBasedOnDbType($model, $attribute); ?>
